@@ -1,0 +1,15 @@
+	<div style="width:200px;height: calc( 100% - 60px );margin-top: -20px;float:left;">
+		<div style="width:200px;height: 100%;background-color: #D5D3CD;">
+			<ul class="list-group">
+				{volist name="dbNum" id="vo" key="k"}
+				{if $vo.num!=0}
+				<a href="{:url('@db/dbindex')}?db={$key}">
+				{else /}{/if}
+					<li class="list-group-item">db:{$key}(<b class="dbnum">{$vo.num}</b>)</li>
+				{if $vo.num!=0}
+				</a>
+				{else /}{/if}
+				{/volist}
+			</ul>
+		</div>
+	</div>

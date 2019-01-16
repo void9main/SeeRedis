@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="utf-8" style="width: 100%;height: 100%;">
+<head>
+	{include file="base/header" /}
+</head>
+<style>
+	.dbinfo{
+		float: left;
+		height:calc( 100% - 80px );
+		overflow: hidden;
+		margin-left: 20px;
+		margin-right: 20px;
+		width: calc( 100% - 250px);
+	}
+	.dbtable{
+		width:100%;
+		float: left;
+	}
+</style>
+<body style="width: 100%;height: 100%;">
+	{include file="base/nav" /}
+	{include file="base/left" /}
+	<div class="dbinfo">
+		<form method="post" action="{$href}1">
+		<div class="input-group" style="width: 300px;">
+			    <input type="text" class="form-control" placeholder="key" name="keys">
+			    <span class="input-group-btn">
+			       <button class="btn btn-default" type="submit">Search</button>
+			    </span>
+		</div><!-- /input-group -->
+		<p><b>共{$allNum}条记录</b></p>
+		</form>
+		<br />
+		<table class="table table-striped table-bordered table-hover dbtable">
+			<tr>
+			<th style="width: 30%;">key</th>
+			<th style="width: 20%;">type</th>
+			<th style="width: 20%;">tll</th>
+			<th style="width: 30%;">操作</th>
+			</tr>
+			{volist name="keysPage" id="vo" key="k"}
+			<tr>
+			<td>{$vo.name}</td>
+			<td>{$vo.type}</td>
+			<td>{$vo.ttl}</td>
+			<td>
+				{php}if($vo['ttl']!="unknow"){{/php}
+				{include file="action/delete" /}
+				<button type="button" class="btn btn-danger btn-xs" 
+				data-toggle="modal" data-target="#deleteModel{$k}">
+				  删除
+				</button>
+				{include file="action/select" /}
+				<button type="button" class="btn btn-primary btn-xs"
+				data-toggle="modal" data-target="#selectModel{$k}"
+				>查看</button>
+				{include file="action/timeset" /}
+				<button type="button" class="btn btn-default btn-xs"
+				data-toggle="modal" data-target="#timesetModel{$k}"	
+				>设置生存时间</button>
+				{php}}{/php}
+			</td>
+			</tr>
+			{/volist}
+		</table>
+		{include file="base/page" /}
+	</div>
+</body>

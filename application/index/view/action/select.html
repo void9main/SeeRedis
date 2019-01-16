@@ -1,0 +1,96 @@
+<div class="modal fade" id="selectModel{$k}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">查询</h4>
+      </div>
+      <form method="post" action="{:url('@db/dbselect')}?key={$vo.name}&db={$db}">
+      <div class="modal-body">
+      	<p>key:<b>{$vo.name}</b></p>
+      	<input type="text" value={php}
+	      		echo 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].$_SERVER['REQUEST_URI'];
+	      		{/php}
+	      		style="width:500px;display: none;"
+	      		name="returl"
+	      		/>
+	      	<input type="text" value="{$keysearch}" name="keys"
+	      		style="display: none;"
+	      		/>
+	      {switch name="$vo.typestr"}
+				    {case value="string"}
+				    <p>类型:<b>string</b></p>
+				    	<textarea class="form-control" rows="8" name="content">{$vo.content}</textarea>
+				    {/case}
+				    {case value="set"}
+				    <p>类型:<b>set</b></p>
+					    <div class="input-group">
+					    <span class="input-group-addon">添加新数据</span>
+							<input type="text" class="form-control" name="content">
+							</div>
+							<br />
+				    	{foreach name="$vo.content" item="val" key="kv" }
+				    	<div class="input-group">
+				    	<span class="input-group-addon">{$kv}</span>
+							<input type="text" class="form-control" value="{$val}" disabled="disabled">
+							</div>
+							{/foreach}
+						{/case}
+						{case value="list"}
+				    <p>类型:<b>list</b></p>
+					    <div class="input-group">
+					    <span class="input-group-addon">添加新数据</span>
+							<input type="text" class="form-control" name="content">
+							</div>
+							<br />
+				    	{foreach name="$vo.content" item="val" key="kv" }
+				    	<div class="input-group">
+				    	<span class="input-group-addon">{$kv}</span>
+							<input type="text" class="form-control" value="{$val}" disabled="disabled">
+							</div>
+							{/foreach}
+				    {/case}
+				    {case value="zset"}
+				    <p>类型:<b>zset</b></p>
+					    <div class="input-group">
+					    <span class="input-group-addon">添加新数据</span>
+							<input type="text" class="form-control" name="content">
+							<span class="input-group-addon">添加新分数</span>
+							<input type="text" class="form-control" name="field" placeholder="默认为1">
+							</div>
+							<br />
+				    	{foreach name="$vo.content" item="val" key="kv" }
+				    	<div class="input-group">
+				    	<span class="input-group-addon">{$kv}</span>
+							<input type="text" class="form-control" value="{$val}" disabled="disabled">
+							</div>
+							{/foreach}
+				    {/case}
+				    {case value="hash"}
+				    <p>类型:<b>hash</b></p>
+					    <div class="input-group">
+					    <span class="input-group-addon">添加新field</span>
+							<input type="text" class="form-control" name="field" placeholder="默认为1">
+					    <span class="input-group-addon">添加新数据</span>
+							<input type="text" class="form-control" name="content">
+							</div>
+							<br />
+				    	{foreach name="$vo.content" item="val" key="kv" }
+				    	<div class="input-group">
+				    	<span class="input-group-addon">{$kv}</span>
+							<input type="text" class="form-control" value="{$val}" disabled="disabled">
+							</div>
+							{/foreach}
+				    {/case}
+				    {default /}
+				    <p><b>未知数据类型</b></p>
+				{/switch}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="submit" class="btn btn-primary">保存</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
