@@ -27,6 +27,8 @@ class Content extends Controller{
 		
 		Session::set("redis_address",json_encode(array("ip"=>$ip,"port"=>$port),true));
 		
+		Session::expire("redis_address",86400);
+		
 		foreach($infoArr as $key=>$val){
         	$this->assign('dbInfo'.$key,$val);
 		}
