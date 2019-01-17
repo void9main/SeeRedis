@@ -115,7 +115,7 @@ class Db extends Controller{
 		
 		$redis->select($db);
 		
-		$redis->expire($key,$ttl);
+		$redis->expire($key,(int)$ttl);
 		
 		$this->redirect($url."&keys=".$keys);
 	}

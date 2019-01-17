@@ -11,3 +11,4 @@
 <h3>License</h3>
 <p>Apache2</p>
 <p>具体的协议参考：http://www.apache.org/licenses/LICENSE-2.0</p>
+<p>Copyright (c) 2019 void9main</p>
