@@ -12,3 +12,17 @@
 <p>Apache2</p>
 <p>具体的协议参考：http://www.apache.org/licenses/LICENSE-2.0</p>
 <p>Copyright (c) 2019 void9main</p>
+----------
+<h3>Online redis management tool based on tp5.0 framework</h3>
+<h3>Environment configuration</h3>
+<p>PHP version greater than 5.5</p>
+<p>Php.ini is configured with the php_redis.dll extension</p>
+<h3>Install</h3>
+<p>git clone https://github.com/void9main/SeeRedis.git</p>
+<h3>Method of use</h3>
+<p>Local default address<code>127.0.0.1</code>,The default port:<code>6379</code></p>
+<p>Local default access address:<code>127.0.0.1/seeredis/public/index.php</code></p>
+<h3>License</h3>
+<p>Apache2</p>
+<p>Specific protocol reference：http://www.apache.org/licenses/LICENSE-2.0</p>
+<p>Copyright (c) 2019 void9main</p>
