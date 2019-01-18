@@ -12,7 +12,7 @@
 <p>Apache2</p>
 <p>具体的协议参考：http://www.apache.org/licenses/LICENSE-2.0</p>
 <p>Copyright (c) 2019 void9main</p>
-----------
+<hr />
 <h3>Online redis management tool based on tp5.0 framework</h3>
 <h3>Environment configuration</h3>
 <p>PHP version greater than 5.5</p>
