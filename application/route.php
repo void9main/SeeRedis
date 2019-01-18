@@ -28,6 +28,8 @@ Route::group('db',function(){
 	Route::any('dbselect','index/db/dbselect');
 	//设置新的时间
 	Route::any('dbtimeset','index/db/dbtimeset');
+	//清空整个db
+	Route::any('dbflush','index/db/dbflush');
 	
 });
 
@@ -39,4 +41,3 @@ Route::group('command',function(){
 	Route::any('index','index/command/index');
 	
 });
-

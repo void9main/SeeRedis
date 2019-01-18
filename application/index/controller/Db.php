@@ -23,9 +23,7 @@ class Db extends Controller{
 		
 		$keysearch = empty(input('param.keys'))?"*":input('param.keys');
 		
-		$redis = Base::redis();
-		
-		$redis->select($db);
+		$redis = Base::redis($db);
 		
 		$keys = $redis->keys("*$keysearch*");
 		
@@ -67,11 +65,23 @@ class Db extends Controller{
 		
 		$db = input('param.db');
 		
-		$redis = Base::redis();
-		
-		$redis->select($db);
+		$redis = Base::redis($db);
 		
 		$redis->delete($key);
+		
+		$this->redirect($url."&keys=".$keys);
+	}
+	
+	public function dbflush(){
+		$url = input('param.returl');
+		
+		$keys = input('param.keys');
+		
+		$db = input('param.db');
+		
+		$redis = Base::redis($db);
+		
+		$redis->flushdb();
 		
 		$this->redirect($url."&keys=".$keys);
 	}
@@ -90,9 +100,7 @@ class Db extends Controller{
 		
 		$field = empty(input('get.field'))?"1":input('get.field');
 		
-		$redis = Base::redis();
-		
-		$redis->select($db);
+		$redis = Base::redis($db);
 		
 		self::typeSet($redis,$key,$content,$field);
 		
@@ -111,9 +119,7 @@ class Db extends Controller{
 		
 		$ttl = input('post.ttl');
 		
-		$redis = Base::redis();
-		
-		$redis->select($db);
+		$redis = Base::redis($db);
 		
 		$redis->expire($key,(int)$ttl);
 		

@@ -15,7 +15,7 @@ class Content extends Controller{
         $ip = empty(input('post.ip'))?"127.0.0.1":input('post.ip');
         $port = empty(input('post.port'))?"6379":input('post.port');
 		
-		$redis = Base::redis($ip,$port);
+		$redis = Base::redis(0,$ip,$port);
 		
         $info = $redis->info();
 		

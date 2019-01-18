@@ -9,7 +9,7 @@ class Base {
     private $redis_conn = "";
 	
 	public static function getleft($ip="127.0.0.1",$port=6379){
-		$redis = self::redis($ip, $port);
+		$redis = self::redis("0",$ip, $port);
 		
         for($i=0;$i<17;$i++){
             $redis->select($i);
@@ -20,7 +20,7 @@ class Base {
 		return $dbinfoNum;
 	}
 	
-	public static function redis($ip="127.0.0.1",$port=6379){
+	public static function redis($db = "0",$ip="127.0.0.1",$port=6379){
 		$redisInfo = Session::get("redis_address");
 		//
 		if(!empty($redisInfo)){
@@ -39,6 +39,9 @@ class Base {
         }catch(\Exception $e){
             throw new \Exception("连接redis服务器失败,请检查redis服务器是否开启");
         }
+		
+		$redis->select($db);
+		
 		return $redis;
 	}
 	
