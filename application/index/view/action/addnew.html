@@ -1,0 +1,35 @@
+<div class="modal fade" id="addNewModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">新增数据</h4>
+      </div>
+      <form method="post" action="{:url('@db/dbselect')}?key={$keysearch}&db={$db}">
+      <div class="modal-body">
+      	<input type="text" value={php}
+	      		echo 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].$_SERVER['REQUEST_URI'];
+	      		{/php}
+	      		style="width:500px;display: none;"
+	      		name="returl"
+	      		/>
+	      	<input type="text" value="{$keysearch}" name="keys"
+	      		style="display: none;"
+	      		/>
+	      	<p>选择数据类型(type):</p>
+	      	<select class="form-control">
+			  <option>string(字符串)</option>
+			  <option>list(列表)</option>
+			  <option>hash(哈希)</option>
+			  <option>set(集合)</option>
+			  <option>zset(有序集合)</option>
+			</select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="submit" class="btn btn-info">新增</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
