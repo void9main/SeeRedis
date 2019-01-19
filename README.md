@@ -9,8 +9,7 @@
 <p>本地默认地址<code>127.0.0.1</code>,默认端口:<code>6379</code></p>
 <p>本地默认访问地址:<code>127.0.0.1/seeredis/public/index.php</code></p>
 <h3>License</h3>
-<p>Apache2</p>
-<p>具体的协议参考：http://www.apache.org/licenses/LICENSE-2.0</p>
+<p>MIT</p>
 <p>Copyright (c) 2019 void9main</p>
 <hr />
 <h3>Online redis management tool based on tp5.0 framework</h3>
@@ -23,6 +22,5 @@
 <p>Local default address<code>127.0.0.1</code>,The default port:<code>6379</code></p>
 <p>Local default access address:<code>127.0.0.1/seeredis/public/index.php</code></p>
 <h3>License</h3>
-<p>Apache2</p>
-<p>Specific protocol reference：http://www.apache.org/licenses/LICENSE-2.0</p>
+<p>MIT</p>
 <p>Copyright (c) 2019 void9main</p>
