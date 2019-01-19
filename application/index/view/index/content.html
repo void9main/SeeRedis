@@ -30,6 +30,7 @@
 	{include file="base/left" /}
 	<div class="dbinfo">
 		<h3>Redis服务器信息:</h3>
+		<h4>redis-server:<code>{$ip}</code>:<code>{$port}</code></h4>
 		<div class="dbdiv">
 		{volist name="dbInfo0" id="vo"}
 			<p>{$key}：<b class="dbinfo-color">{$vo}</b></p>
