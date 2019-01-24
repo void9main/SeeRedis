@@ -33,7 +33,7 @@
 			       <button class="btn btn-default" type="submit">Search</button>
 			    </span>
 		</div><!-- /input-group -->
-		<p><b>共{$allNum}条记录,共{php}echo ceil($allNum/15);{/php}页</b></p>
+		<p><b style="font-size: 15px;color: #28A4C9;">db:{$db}</b>&nbsp;&nbsp;<b>共{$allNum}条记录,共{php}echo ceil($allNum/15);{/php}页</b></p>
 		</form>
 		<form method="post" action="{:url('@db/dbflush')}?key={$keysearch}&db={$db}">
 			<div class="flush">

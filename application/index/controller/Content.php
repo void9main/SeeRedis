@@ -12,6 +12,7 @@ class Content extends Controller{
     private $redis_conn = "";
 
     public function index(){
+		
         $ip = empty(input('post.ip'))?"127.0.0.1":input('post.ip');
         $port = empty(input('post.port'))?"6379":input('post.port');
 		
@@ -48,7 +49,7 @@ class Content extends Controller{
 			$port = "未知端口";
 			
 		}
-				
+	
 		$this->assign("ip",$ip);
 		
 		$this->assign("port",$port);
