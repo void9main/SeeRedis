@@ -12,11 +12,24 @@
 		margin-right: 20px;
 		width: calc( 100% - 250px);
 	}
+	.comdiv{
+		background-color: #3C3C3C;
+		color:#8DE053;
+		height: 100%;
+	}
+	.comcon{
+		overflow: auto;
+		height: 100%;
+	}
 </style>
 <body style="width: 100%;height: 100%;">
 	{include file="base/nav" /}
 	{include file="base/left" /}
 	<div class="dbinfo">
-		
+		<div class="comdiv">
+			<div contenteditable="true" class="comcon">
+				<p>~$ redis-server:{$ip},port:{$port}</p>
+			</div>
+		</div>
 	</div>
 </body>

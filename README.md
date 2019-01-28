@@ -3,6 +3,10 @@
 <h3>环境配置</h3>
 <p>php版本大于5.5</p>
 <p>php.ini配置了php_redis.dll扩展</p>
+<p>
+	（备注）php_redis.dll扩展下载地址：
+	<code>http://pecl.php.net/package/redis</code>
+</p>
 <h3>下载安装</h3>
 <p>git clone https://github.com/void9main/SeeRedis.git</p>
 <h3>使用方法</h3>
