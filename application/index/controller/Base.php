@@ -48,4 +48,19 @@ class Base {
 	public static function redis_conn($redis){
 		
 	}
+	
+	public static function setActionType($row,$name){
+		
+		Session::set("actionName",$name);
+		
+		if($row == "1"){
+			
+			Session::set("actionType","success");
+			
+		}else{
+			
+			Session::set("actionType","fail");
+			
+		}
+	}
 }

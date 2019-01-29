@@ -1,3 +1,27 @@
+<div align="center" id="actionType" style="z-index:9999;position:fixed;">
+{php}if(!empty($actionName) and !empty($actionType)){{/php}
+{php}if($actionType == "success"){{/php}
+<div class="alert alert-success" role="alert" style="z-index:9999;position:fixed;width: 100%;">
+	{$actionName}成功
+</div>
+{php}}else if($actionType == "fail"){{/php}
+<div class="alert alert-danger" role="alert"  style="z-index:9999;position:fixed;width: 100%;">
+	{$actionName}失败
+</div>
+{php}}{/php}
+{php}}{/php}
+</div>
+<script>
+	$(function () {
+
+    setTimeout(function () {
+
+        $("#actionType").hide();
+
+    }, 3000);
+
+	})
+</script>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">

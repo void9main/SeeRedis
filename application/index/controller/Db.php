@@ -3,6 +3,7 @@ namespace app\index\controller;
 
 use think\Controller;
 use app\index\controller\Base;
+use think\Session;
 
 class Db extends Controller{
 	
@@ -53,6 +54,12 @@ class Db extends Controller{
 		
 		$this->assign("keysearch",$keysearch);
 		
+		$this->assign("actionName",Session::pull("actionName"));
+		
+		$this->assign("actionType",Session::pull("actionType"));
+		
+		
+		
         return $this->fetch('db/dbindex');
     }
 	
@@ -67,7 +74,9 @@ class Db extends Controller{
 		
 		$redis = Base::redis($db);
 		
-		$redis->delete($key);
+		$row = $redis->delete($key);
+		
+		Base::setActionType($row,"删除");
 		
 		$this->redirect($url."&keys=".$keys);
 	}
@@ -81,7 +90,9 @@ class Db extends Controller{
 		
 		$redis = Base::redis($db);
 		
-		$redis->flushdb();
+		$row = $redis->flushdb();
+		
+		Base::setActionType($row,"清空db:".$db);
 		
 		$this->redirect($url."&keys=".$keys);
 	}
@@ -121,7 +132,9 @@ class Db extends Controller{
 		
 		$redis = Base::redis($db);
 		
-		$redis->expire($key,(int)$ttl);
+		$row = $redis->expire($key,(int)$ttl);
+		
+		Base::setActionType($row,"设置生存时间");
 		
 		$this->redirect($url."&keys=".$keys);
 	}
