@@ -35,24 +35,24 @@
 		</div><!-- /input-group -->
 		<p><b style="font-size: 15px;color: #28A4C9;">db:{$db}</b>&nbsp;&nbsp;<b>共{$allNum}条记录,共{php}echo ceil($allNum/15);{/php}页</b></p>
 		</form>
+	    <div class="flush">
 		<form method="post" action="{:url('@db/dbflush')}?key={$keysearch}&db={$db}">
-			<div class="flush">
-				<input type="text" value={php}
-	      		echo 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].$_SERVER['REQUEST_URI'];
-	      		{/php}
-	      		style="width:500px;display: none;"
-	      		name="returl"
-	      		/>
-	      		<input type="text" value="{$keysearch}" name="keys"
-	      		style="display: none;"
-	      		/>
-	      		{include file="action/addnew" /}
-	      		<!--<button class="btn btn-info" type="button"
-	      		data-toggle="modal" data-target="#addNewModel"	
-	      		>新增数据</button>-->
-				<button class="btn btn-danger" type="submit">清空整个db</button>
-			</div>
+			<input type="text" value={php}
+	      	echo 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].$_SERVER['REQUEST_URI'];
+	      	{/php}
+	      	style="width:500px;display: none;"
+	      	name="returl"
+	      	/>
+	      	<input type="text" value="{$keysearch}" name="keys"
+	      	style="display: none;"
+	      	/>
+	      	{include file="action/addnew" /}
+		    <button class="btn btn-info" type="button"
+		    data-toggle="modal" data-target="#addNewModel"	
+		    >新增数据</button>
+			<button class="btn btn-danger" type="submit">清空整个db</button>
 		</form>
+		</div>
 		<br />
 		<table class="table table-striped table-bordered table-hover dbtable">
 			<tr>
