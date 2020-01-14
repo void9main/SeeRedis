@@ -14,19 +14,20 @@ class Content extends Controller{
     public function index(){
 		
         $ip = empty(input('post.ip'))?"127.0.0.1":input('post.ip');
-        $port = empty(input('post.port'))?"6379":input('post.port');
+		$port = empty(input('post.port'))?"6379":input('post.port');
+		$auth = empty(input('post.auth'))?"":input('post.auth');
 		
-		$redis = Base::redis(0,$ip,$port);
+		$redis = Base::redis(0,$ip,$port,$auth);
 		
         $info = $redis->info();
 		
-		$dbinfoNum = Base::getleft($ip,$port);
+		$dbinfoNum = Base::getleft($ip,$port,$auth);
 		
 		$this->assign('dbNum',$dbinfoNum);
 		
 		$infoArr = array_chunk($info,"23",true);
 		
-		Session::set("redis_address",json_encode(array("ip"=>$ip,"port"=>$port),true));
+		Session::set("redis_address",json_encode(array("ip"=>$ip,"port"=>$port,"auth"=>$auth),true));
 		
 		foreach($infoArr as $key=>$val){
         	$this->assign('dbInfo'.$key,$val);

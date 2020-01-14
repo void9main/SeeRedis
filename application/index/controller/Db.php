@@ -74,7 +74,7 @@ class Db extends Controller{
 		
 		$redis = Base::redis($db);
 		
-		$row = $redis->delete($key);
+		$row = $redis->del($key);
 		
 		Base::setActionType($row,"删除");
 		
