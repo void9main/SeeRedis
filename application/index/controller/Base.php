@@ -1,9 +1,32 @@
 <?php
 namespace app\index\controller;
 
+use think\Controller;
 use think\Session;
 
-class Base {
+class Base extends Controller{
+
+	public $dbinfoNum;
+
+	public $pwd = "";
+
+	/**
+	 * 构造函数设置
+	 */
+	public function __construct(){
+		parent::__construct();
+		//增设登录检查
+		$name = Session::get('name_login');
+		if(!$name){
+			//退回
+			$this->error("非法操作！",'Index/index');
+		}
+
+		$dbinfoNum = self::getleft();
+
+		$this->dbinfoNum = $dbinfoNum;
+
+	}
 
 
     private $redis_conn = "";

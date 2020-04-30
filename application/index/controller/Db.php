@@ -5,16 +5,7 @@ use think\Controller;
 use app\index\controller\Base;
 use think\Session;
 
-class Db extends Controller{
-	
-	public function __construct(){
-		parent::__construct();
-		
-		$dbinfoNum = Base::getleft();
-
-		$this->assign('dbNum',$dbinfoNum);
-	}
-	
+class Db extends Base{
 	
     public function dbIndex(){
 		
@@ -41,6 +32,8 @@ class Db extends Controller{
 			$this->assign("keysPage",$keysArr);
 			
 		}
+
+		$this->assign('dbNum',$this->dbinfoNum);
 		
 		$this->assign("page",count($keysArr));
 		
@@ -64,6 +57,7 @@ class Db extends Controller{
     }
 	
 	public function dbdelete(){
+		
 		$url = input('param.returl');
 		
 		$keys = input('param.keys');

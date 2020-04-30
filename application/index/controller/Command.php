@@ -6,19 +6,13 @@ use think\Request;
 use app\index\controller\Base;
 use think\Session;
 
-class Command extends Controller{
-	
-	public function __construct(){
-		parent::__construct();
-		
-		$dbinfoNum = Base::getleft();
-
-		$this->assign('dbNum',$dbinfoNum);
-	}
+class Command extends Base{
 
     public function index(){
     	
 		$address = Session::get("redis_address");
+
+		$this->assign('dbNum',$this->dbinfoNum);
 
 		if(!empty($address)){
 			

@@ -146,7 +146,7 @@ return [
     'view_replace_str'       => [
         '__ROOT__'=>str_replace('/index.php','',\think\Request::instance()->root()),
         '__APP__'=>\think\Request::instance()->root(),
-        '__STATIC__'=>str_replace('/public/index.php','',\think\Request::instance()->root()).'/public/static'
+        '__STATIC__'=>str_replace('/index.php','',\think\Request::instance()->root()).'/static'
     ],
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
