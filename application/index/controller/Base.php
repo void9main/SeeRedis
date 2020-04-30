@@ -19,7 +19,7 @@ class Base extends Controller{
 		$name = Session::get('name_login');
 		if(!$name){
 			//退回
-			$this->error("非法操作！");
+			$this->error("非法操作！",url('/'));
 		}
 
 		$dbinfoNum = self::getleft();
