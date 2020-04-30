@@ -12,6 +12,7 @@
 <h3>使用方法</h3>
 <p>本地默认地址<code>127.0.0.1</code>,默认端口:<code>6379</code></p>
 <p>本地默认访问地址:<code>127.0.0.1/seeredis/public/index.php</code></p>
+<p>新增：密码设置，初始化密码位于config.php的password中，默认为123456</p>
 <h3>License</h3>
 <p>MIT</p>
 <p>Copyright (c) 2019 void9main</p>
@@ -25,6 +26,7 @@
 <h3>Method of use</h3>
 <p>Local default address<code>127.0.0.1</code>,The default port:<code>6379</code></p>
 <p>Local default access address:<code>127.0.0.1/seeredis/public/index.php</code></p>
+<p>New: password Settings, the initialization password is in the password of config.php, the default is123456</p>
 <h3>License</h3>
 <p>MIT</p>
 <p>Copyright (c) 2019 void9main</p>
