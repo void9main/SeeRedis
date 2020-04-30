@@ -17,6 +17,14 @@ Route::group('content',function(){
 	
 });
 /**
+ * 登录路由
+ */
+Route::group('user',function(){
+	//首页
+	Route::any('login','index/user/login');
+	
+});
+/**
  * db路由
  */
 Route::group('db',function(){

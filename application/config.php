@@ -97,7 +97,7 @@ return [
     // 是否强制使用路由
     'url_route_must'         => true,
     // 域名部署
-    'url_domain_deploy'      => false,
+    'url_domain_deploy'      => true,
     // 域名根，如thinkphp.cn
     'url_domain_root'        => '',
     // 是否自动转换URL中的控制器和操作名
@@ -246,4 +246,6 @@ return [
         'var_page'  => 'page',
         'list_rows' => 15,
     ],
+    //密码（默认123456）
+    'password'=>"e10adc3949ba59abbe56e057f20f883e",
 ];

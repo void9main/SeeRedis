@@ -10,29 +10,11 @@ class Content extends Base{
 
     public function index(){
 		
-        $ip = empty(input('post.ip'))?"127.0.0.1":input('post.ip');
-		$port = empty(input('post.port'))?"6379":input('post.port');
-		$auth = empty(input('post.auth'))?"":input('post.auth');
+        $ip = Session::get("ip");
+		$port = Session::get("port");
+		$auth = Session::get("auth");
 
-		$password = input('post.password');
-
-		if(empty($password)){
-
-			$this->error("密码不能为空",url('/'));
-
-			exit;
-		}
-
-		if(md5($password) != $this->pwd){
-
-			$this->error("密码错误",url('/'));
-
-			exit;
-
-		}else{
-
-			Session::set("name_login",md5(time()));
-		}
+		Session::flush();
 		
 		$redis = Base::redis(0,$ip,$port,$auth);
 		

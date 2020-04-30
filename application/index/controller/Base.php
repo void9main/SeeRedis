@@ -8,8 +8,6 @@ class Base extends Controller{
 
 	public $dbinfoNum;
 
-	public $pwd = "";
-
 	/**
 	 * 构造函数设置
 	 */
@@ -17,9 +15,16 @@ class Base extends Controller{
 		parent::__construct();
 		//增设登录检查
 		$name = Session::get('name_login');
+
 		if(!$name){
 			//退回
 			$this->error("非法操作！",url('/'));
+			exit;
+		}
+
+		if(empty($name)){
+			$this->error("非法操作！",url('/'));
+			exit;
 		}
 
 		$dbinfoNum = self::getleft();
