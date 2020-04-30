@@ -18,14 +18,14 @@ class Content extends Base{
 
 		if(empty($password)){
 
-			$this->error("密码不能为空","Index/index");
-			
+			$this->error("密码不能为空");
+
 			exit;
 		}
 
 		if(md5($password) != $this->pwd){
 
-			$this->error("密码错误","Index/index");
+			$this->error("密码错误");
 
 			exit;
 
