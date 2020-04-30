@@ -18,14 +18,14 @@ class User extends Controller{
 
         if(empty($password)){
 
-            $this->error("密码不能为空",url('/'));
+            $this->error("密码不能为空",url(''));
 
             exit;
         }
 
         if(md5($password) != config("password")){
 
-            $this->error("密码错误",url('/'));
+            $this->error("密码错误",url(''));
 
             exit;
 

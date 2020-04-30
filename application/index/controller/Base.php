@@ -18,12 +18,12 @@ class Base extends Controller{
 
 		if(!$name){
 			//退回
-			$this->error("非法操作！",url('/'));
+			$this->error("非法操作！",url(''));
 			exit;
 		}
 
 		if(empty($name)){
-			$this->error("非法操作！",url('/'));
+			$this->error("非法操作！",url(''));
 			exit;
 		}
 
